@@ -140,7 +140,7 @@ const experiences = [
     company_name: "IZIWAY, Douala",
     icon: iziway,
     iconBg: "#383E56",
-    date: "June 2024 - November 2024",
+    date: "April 2024 - Present",
     points: [
       "Developed features in C# .NET, enhancing e-commerce site performance and user experience.",
       "Optimized the Seller Center platform with PHP Laravel for efficient product management.",
