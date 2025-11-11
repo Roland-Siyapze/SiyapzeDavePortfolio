@@ -12,6 +12,7 @@ import {
   mongodb,
   git,
   iziway,
+  fsligroup,
   webverseagency,
   campusconnect,
   skilltestapp,
@@ -127,7 +128,7 @@ const experiences = [
   {
     title: "Mobile & Web Developer",
     company_name: "FSLI Group, Douala",
-    icon: webverseagency, // replace with a dedicated fsli icon if available
+    icon: fsligroup,
     iconBg: "#E6DEDD",
     date: "September 2025 - Present",
     points: [
