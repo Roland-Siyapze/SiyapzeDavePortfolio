@@ -19,6 +19,7 @@ import threejs from "./tech/threejs.svg";
 import laravel from "./tech/laravel.png";
 
 import iziway from "./company/iziway.png";
+import fsligroup from "./company/fsligroup.png";
 
 import webverseagency from "./webverseagency.png";
 import campusconnect from "./campusconnect.png";
@@ -44,6 +45,7 @@ export {
   threejs,
   laravel,
   iziway,
+  fsligroup,
   webverseagency,
   campusconnect,
   skilltestapp,
