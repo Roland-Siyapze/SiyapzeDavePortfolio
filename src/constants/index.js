@@ -109,85 +109,36 @@ const technologies = [
 ];
 
 const experiences = [
-  // {
-  //   title: "React.js Developer",
-  //   company_name: "Starbucks",
-  //   icon: starbucks,
-  //   iconBg: "#383E56",
-  //   date: "March 2020 - April 2021",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
   {
-    title: "Frontend Development",
-    company_name: "IZIWAY, Douala",
-    icon: iziway,
-    iconBg: "#E6DEDD",
-    date: "June 2023 - October 2023",
-    points: [
-      "Designed and integrated dynamic user interfaces using Razor, adhering to UI/UX designs.",
-      "Developed reusable components and implemented features like infinite scrolling.",
-      "Resolved frontend bugs and optimized web page performance.",
-      "Collaborated with the backend team to ensure seamless API integration.",
-    ],
-  },
-  {
-    title: "Full-Stack Development",
-    company_name: "IZIWAY, Douala",
+    title: "Full Stack Web Developer",
+    company_name: "GTA Consulting / IZIWAY Cameroon, Douala",
     icon: iziway,
     iconBg: "#383E56",
-    date: "April 2024 - Present",
+    date: "June 2022 - August 2025",
     points: [
-      "Developed features in C# .NET, enhancing e-commerce site performance and user experience.",
-      "Optimized the Seller Center platform with PHP Laravel for efficient product management.",
-      "Designed REST APIs to synchronize data between the marketplace and Seller Center.",
-      "Resolved critical bugs and optimized SQL queries on SQL Server.",
-      "Implemented product approval and rejection functionalities for improved quality control.",
+      "Developed a drag-and-drop page builder (React + Vite + .NET API) enabling the commercial team to visually edit and deploy landing pages on the marketplace without developer intervention.",
+      "Delivered and maintained customer-facing and seller portal features using C#/.NET and PHP (Laravel), aligning releases with business goals.",
+      "Led frontend and backend optimizations that increased user engagement by 20% through performance and UI improvements.",
+      "Implemented A/B testing for UX changes, analyzed results, and prioritized improvements for conversion optimization.",
+      "Enhanced Seller Center modules to simplify vendor product management and reduce onboarding time.",
+      "Maintained high code quality via automated testing, peer code reviews, and adherence to Agile sprint cycles.",
     ],
   },
-  // {
-  //   title: "React Native Developer",
-  //   company_name: "Tesla",
-  //   icon: tesla,
-  //   iconBg: "#E6DEDD",
-  //   date: "Jan 2021 - Feb 2022",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
-  // {
-  //   title: "Web Developer",
-  //   company_name: "Shopify",
-  //   icon: shopify,
-  //   iconBg: "#383E56",
-  //   date: "Jan 2022 - Jan 2023",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
-  // {
-  //   title: "Full stack Developer",
-  //   company_name: "Meta",
-  //   icon: meta,
-  //   iconBg: "#E6DEDD",
-  //   date: "Jan 2023 - Present",
-  //   points: [
-  //     "Developing and maintaining web applications using React.js and other related technologies.",
-  //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //     "Implementing responsive design and ensuring cross-browser compatibility.",
-  //     "Participating in code reviews and providing constructive feedback to other developers.",
-  //   ],
-  // },
+  {
+    title: "Mobile & Web Developer",
+    company_name: "FSLI Group, Douala",
+    icon: webverseagency, // replace with a dedicated fsli icon if available
+    iconBg: "#E6DEDD",
+    date: "September 2025 - Present",
+    points: [
+      "Led the migration of a large-scale React Native app from version 0.72.4 to 0.81.1, resolving dependency conflicts and improving build stability across Android and iOS.",
+      "Designed and implemented a tournament management flow for a sports app — from UI/UX prototyping to API integration.",
+      "Built modules for a multi-tenant ERP system, including invoice management compliant with EU Factur-X standards.",
+      "Automated hybrid PDF + XML invoice generation and ensured data accuracy through end-to-end testing.",
+      "Developed and optimized the ERP landing page using React and motion design, delivering a dynamic and interactive user interface.",
+      "Collaborated in Agile sprints, participating in reviews, issue triage, and cross-team testing to ensure release quality.",
+    ],
+  },
 ];
 
 const testimonials = [
