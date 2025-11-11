@@ -129,7 +129,7 @@ const experiences = [
     title: "Mobile & Web Developer",
     company_name: "FSLI Group, Douala",
     icon: fsligroup,
-    iconBg: "#E6DEDD",
+    iconBg: "#FFFFFF",
     date: "September 2025 - Present",
     points: [
       "Led the migration of a large-scale React Native app from version 0.72.4 to 0.81.1, resolving dependency conflicts and improving build stability across Android and iOS.",
