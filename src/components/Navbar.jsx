@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { useTheme } from "../context/ThemeContext";
+import sun from "../assets/sun.svg";
+import moon from "../assets/moon.svg";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +47,9 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex ">
+          <p className={`text-white text-[18px] font-bold cursor-pointer flex ${
+            isDarkMode ? "text-white" : "text-gray-900"
+          }`}>
             Dave Roland &nbsp;
             <span className="sm:block hidden"> | Fullstack Dev</span>
           </p>
@@ -55,7 +61,9 @@ const Navbar = () => {
               key={nav.id}
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              } hover:text-white text-[18px] font-medium cursor-pointer ${
+                isDarkMode ? "text-white" : "text-gray-700"
+              }`}
               onClick={() => setActive(nav.title)}
             >
               {nav.id === 'projects' ? (
@@ -65,9 +73,37 @@ const Navbar = () => {
               )}
             </li>
           ))}
+          <li>
+            <button
+              onClick={toggleTheme}
+              className={`p-2 rounded-full transition-colors ${
+                isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-200"
+              }`}
+              aria-label="Toggle theme"
+            >
+              {isDarkMode ? (
+                <img src={sun} alt="Light mode" className="w-5 h-5" />
+              ) : (
+                <img src={moon} alt="Dark mode" className="w-5 h-5" />
+              )}
+            </button>
+          </li>
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
+          <button
+            onClick={toggleTheme}
+            className={`p-2 mr-2 rounded-full transition-colors ${
+              isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-200"
+            }`}
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? (
+              <img src={sun} alt="Light mode" className="w-5 h-5" />
+            ) : (
+              <img src={moon} alt="Dark mode" className="w-5 h-5" />
+            )}
+          </button>
           <img
             src={toggle ? close : menu}
             alt="menu"

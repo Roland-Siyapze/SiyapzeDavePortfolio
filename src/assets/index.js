@@ -6,6 +6,8 @@ import web from './web.png';
 import github from './github.png';
 import menu from './menu.svg';
 import close from './close.svg';
+import sun from './sun.svg';
+import moon from './moon.svg';
 
 import css from './tech/css.png';
 import git from './tech/git.png';
@@ -37,6 +39,8 @@ export {
   github,
   menu,
   close,
+  sun,
+  moon,
   css,
   git,
   html,

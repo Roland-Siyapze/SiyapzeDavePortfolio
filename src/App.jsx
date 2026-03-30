@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Projects, Tech, Works, StarsCanvas } from "./components";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const Home = () => {
   return (
@@ -25,17 +26,19 @@ const Home = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={
-          <div className='bg-primary min-h-screen'>
-            <Navbar />
-            <div className='pt-32'>
-              <Projects />
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={
+            <div className='bg-primary min-h-screen'>
+              <Navbar />
+              <div className='pt-32'>
+                <Projects />
+              </div>
             </div>
-          </div>
-        } />
-      </Routes>
+          } />
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

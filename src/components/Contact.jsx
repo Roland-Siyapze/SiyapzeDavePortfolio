@@ -6,8 +6,10 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { useTheme } from "../context/ThemeContext";
 
 const Contact = () => {
+  const { isDarkMode } = useTheme();
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -70,10 +72,10 @@ const Contact = () => {
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+        className={`flex-[0.75] p-8 rounded-2xl ${isDarkMode ? "bg-black-100" : "bg-gray-100"}`}
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>Get in touch</p>
+        <h3 className={`${styles.sectionHeadText} ${isDarkMode ? "text-white" : "text-gray-900"}`}>Contact.</h3>
 
         <form
           ref={formRef}
@@ -81,42 +83,58 @@ const Contact = () => {
           className="mt-12 flex flex-col gap-8"
         >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Name</span>
+            <span className={`font-medium mb-4 ${isDarkMode ? "text-white" : "text-gray-700"}`}>Your Name</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className={`py-4 px-6 rounded-lg outline-none border-none font-medium ${
+                isDarkMode 
+                  ? "bg-tertiary placeholder:text-secondary text-white" 
+                  : "bg-gray-200 placeholder:text-gray-500 text-gray-900"
+              }`}
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your email</span>
+            <span className={`font-medium mb-4 ${isDarkMode ? "text-white" : "text-gray-700"}`}>Your email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className={`py-4 px-6 rounded-lg outline-none border-none font-medium ${
+                isDarkMode 
+                  ? "bg-tertiary placeholder:text-secondary text-white" 
+                  : "bg-gray-200 placeholder:text-gray-500 text-gray-900"
+              }`}
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
+            <span className={`font-medium mb-4 ${isDarkMode ? "text-white" : "text-gray-700"}`}>Your Message</span>
             <textarea
               rows={7}
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              className={`py-4 px-6 rounded-lg outline-none border-none font-medium ${
+                isDarkMode 
+                  ? "bg-tertiary placeholder:text-secondary text-white" 
+                  : "bg-gray-200 placeholder:text-gray-500 text-gray-900"
+              }`}
             />
           </label>
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            className={`py-3 px-8 rounded-xl outline-none w-fit font-bold shadow-md ${
+              isDarkMode 
+                ? "bg-tertiary text-white shadow-primary" 
+                : "bg-gray-300 text-gray-900 shadow-gray-400"
+            }`}
           >
             {loading ? "Sending..." : "Send"}
           </button>

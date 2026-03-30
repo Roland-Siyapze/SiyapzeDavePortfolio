@@ -11,17 +11,24 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useTheme } from "../context/ThemeContext";
 
 const ExperienceCard = ({ experience }) => {
+  const { isDarkMode } = useTheme();
+  
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
+        background: isDarkMode ? "#1d1836" : "#f5f5f5",
+        color: isDarkMode ? "#fff" : "#1a1a1a",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{ borderRight: isDarkMode ? "7px solid  #232631" : "7px solid  #e0e0e0" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{ 
+        background: experience.iconBg,
+        border: isDarkMode ? "2px solid #fff" : "2px solid #333",
+        boxShadow: isDarkMode ? "0 0 0 2px #fff" : "0 0 0 2px #333"
+      }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
           <img
@@ -33,9 +40,9 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className={`text-[24px] font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>{experience.title}</h3>
         <p
-          className='text-secondary text-[16px] font-semibold'
+          className={`text-[16px] font-semibold ${isDarkMode ? "text-secondary" : "text-gray-600"}`}
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -46,7 +53,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
+            className={`text-[14px] pl-1 tracking-wider ${isDarkMode ? "text-white-100" : "text-gray-700"}`}
           >
             {point}
           </li>
@@ -57,19 +64,23 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const { isDarkMode } = useTheme();
+  
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
+        <p className={`${styles.sectionSubText} text-center ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
           What I have done so far
         </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
+        <h2 className={`${styles.sectionHeadText} text-center ${isDarkMode ? "text-white" : "text-gray-900"}`}>
           Work Experience.
         </h2>
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
+        <VerticalTimeline
+          lineColor={isDarkMode ? "#fff" : "#333"}
+        >
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}

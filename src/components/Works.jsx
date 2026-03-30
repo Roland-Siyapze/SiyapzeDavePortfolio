@@ -8,6 +8,7 @@ import { github, web } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useTheme } from "../context/ThemeContext";
 
 const ProjectCard = ({
   index,
@@ -18,6 +19,7 @@ const ProjectCard = ({
   source_code_link,
   live_link,
 }) => {
+  const { isDarkMode } = useTheme();
   // Determine which link to show
   const showLiveLink = live_link && live_link !== "";
   const showCodeLink = source_code_link && source_code_link !== "";
@@ -30,7 +32,7 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className={`p-5 rounded-2xl sm:w-[360px] w-full ${isDarkMode ? "bg-tertiary" : "bg-gray-100"}`}
       >
         <div className="relative w-full h-[230px]">
           <img
@@ -70,8 +72,8 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <h3 className={`font-bold text-[24px] ${isDarkMode ? "text-white" : "text-gray-900"}`}>{name}</h3>
+          <p className={`mt-2 text-[14px] ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>{description}</p>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
@@ -90,20 +92,21 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const { isDarkMode } = useTheme();
   // Show only the first 3 projects
   const displayedProjects = projects.slice(0, 3);
 
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+        <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>My work</p>
+        <h2 className={`${styles.sectionHeadText} ${isDarkMode ? "text-white" : "text-gray-900"}`}>Projects.</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className={`mt-3 text-[17px] max-w-3xl leading-[30px] ${isDarkMode ? "text-secondary" : "text-gray-600"}`}
         >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
@@ -121,7 +124,11 @@ const Works = () => {
 
       <div className="mt-16 flex justify-center">
         <Link to="/projects">
-          <button className="bg-tertiary hover:bg-tertiary/80 text-white py-3 px-8 rounded-xl font-medium text-[16px] transition-all duration-300">
+          <button className={`py-3 px-8 rounded-xl font-medium text-[16px] transition-all duration-300 ${
+            isDarkMode 
+              ? "bg-tertiary hover:bg-tertiary/80 text-white" 
+              : "bg-gray-200 hover:bg-gray-300 text-gray-900"
+          }`}>
             View All Projects
           </button>
         </Link>
