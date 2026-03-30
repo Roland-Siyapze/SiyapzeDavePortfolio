@@ -43,7 +43,7 @@ const ProjectCard = ({
             {showLiveLink && (
               <div
                 onClick={() => window.open(live_link, "_blank")}
-                className="green-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+                className="bg-white/30 backdrop-blur-md w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
                 title="View Live Project"
               >
                 <img
