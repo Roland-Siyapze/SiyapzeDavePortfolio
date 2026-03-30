@@ -47,7 +47,7 @@ const Navbar = () => {
           }}
         >
           <img src={logo} alt="logo" className="w-9 h-9 object-contain" />
-          <p className={`text-white text-[18px] font-bold cursor-pointer flex ${
+          <p className={`text-[18px] font-bold cursor-pointer flex ${
             isDarkMode ? "text-white" : "text-gray-900"
           }`}>
             Dave Roland &nbsp;
@@ -82,7 +82,7 @@ const Navbar = () => {
               aria-label="Toggle theme"
             >
               {isDarkMode ? (
-                <img src={sun} alt="Light mode" className="w-5 h-5" />
+                <img src={sun} alt="Light mode" className="w-5 h-5 invert" />
               ) : (
                 <img src={moon} alt="Dark mode" className="w-5 h-5" />
               )}
@@ -99,7 +99,7 @@ const Navbar = () => {
             aria-label="Toggle theme"
           >
             {isDarkMode ? (
-              <img src={sun} alt="Light mode" className="w-5 h-5" />
+              <img src={sun} alt="Light mode" className="w-5 h-5 invert" />
             ) : (
               <img src={moon} alt="Dark mode" className="w-5 h-5" />
             )}
