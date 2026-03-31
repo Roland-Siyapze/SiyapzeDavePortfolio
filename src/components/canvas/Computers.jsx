@@ -31,8 +31,16 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [hasWebGL, setHasWebGL] = useState(true);
 
   useEffect(() => {
+    // Check for WebGL support
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) {
+      setHasWebGL(false);
+    }
+
     // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
@@ -53,25 +61,44 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  return (
-    <Canvas
-      frameloop='demand'
-      shadows
-      dpr={[1, 2]}
-      camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
-        <Computers isMobile={isMobile} />
-      </Suspense>
 
-      <Preload all />
-    </Canvas>
+  // If WebGL is not supported, return null to avoid rendering issues
+  if (!hasWebGL) {
+    return null;
+  }
+
+  return (
+    <div className="w-full h-full absolute top-[120px] right-0 sm:right-[-20px]">
+      <Canvas
+        frameloop='demand'
+        shadows
+        dpr={isMobile ? [1, 1.5] : [1, 2]}
+        camera={{ position: [20, 3, 5], fov: 25 }}
+        gl={{ 
+          antialias: true,
+          powerPreference: "high-performance",
+          alpha: true
+        }}
+        style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%' 
+        }}
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+          <Computers isMobile={isMobile} />
+        </Suspense>
+
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 
