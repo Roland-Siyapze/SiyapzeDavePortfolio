@@ -32,7 +32,7 @@ const SkillCard = ({ index, title, skills, icon }) => {
   const { isDarkMode } = useTheme();
   
   return (
-    <Tilt className="xs:w-[280px] w-full">
+    <Tilt className="w-full">
       <motion.div
         variants={fadeIn("right", "spring", index * 0.15, 0.75)}
         className="w-full green-pink-gradient p-[1px] rounded-[20px]"
@@ -162,10 +162,10 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-primary">
       {/* Hero Section */}
-      <div className={`${styles.paddingX} pt-32 pb-16`}>
+      <div className={`${styles.paddingX} pb-16`}>
         <motion.div variants={textVariant()}>
           {/* Section Header Style */}
-          <div className="flex flex-col md:flex-row items-start gap-5">
+          <div className="flex flex-row items-start gap-5">
             <div className="flex flex-col justify-center items-center">
               <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
               <div className="w-1 sm:h-32 h-20 violet-gradient" />
