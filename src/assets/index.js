@@ -19,6 +19,10 @@ import reactjs from './tech/reactjs.png';
 import tailwind from './tech/tailwind.png';
 import threejs from './tech/threejs.svg';
 import laravel from './tech/laravel.png';
+import dataScience from './data-science.png';
+import framework from './framework.png';
+import support from './support.png';
+import coding from './coding.png';
 
 import iziway from './company/iziway.png';
 import fsligroup from './company/fsligroup.png';
@@ -51,6 +55,10 @@ export {
   tailwind,
   threejs,
   laravel,
+  dataScience,
+  framework,
+  support,
+  coding,
   iziway,
   fsligroup,
   webverseagency,
