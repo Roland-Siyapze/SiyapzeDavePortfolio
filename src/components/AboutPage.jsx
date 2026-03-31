@@ -4,6 +4,7 @@ import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
+import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useTheme } from "../context/ThemeContext";
 import { framework, coding, support, dataScience } from "../assets";
@@ -162,7 +163,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-primary">
       {/* Hero Section */}
-      <div className={`${styles.paddingX} pb-16`}>
+      <div className= "pb-16">
         <motion.div variants={textVariant()}>
           {/* Section Header Style */}
           <div className="flex flex-row items-start gap-5">
@@ -181,7 +182,7 @@ const AboutPage = () => {
           </div>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12 mt-12">
+        <div className="flex flex-col lg:flex-row items-center gap-12 mt-12 justify-center">
           {/* Profile Image */}
           <div className="flex-shrink-0">
             <Tilt
@@ -209,7 +210,7 @@ const AboutPage = () => {
           </div>
 
           {/* Personal Info */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="text-center lg:text-left">
             <h2 className={`text-3xl lg:text-4xl font-bold mb-2 ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}>
@@ -247,7 +248,7 @@ const AboutPage = () => {
       </div>
 
       {/* Summary Section */}
-      <div className={`${styles.paddingX} py-16`}>
+      <div className="py-16">
         <motion.div variants={fadeIn("", "", 0.1, 1)}>
           <h3 className={`text-2xl lg:text-3xl font-bold mb-6 ${
             isDarkMode ? "text-white" : "text-gray-900"
@@ -267,7 +268,7 @@ const AboutPage = () => {
       </div>
 
       {/* Technical Skills Section */}
-      <div className={`${styles.paddingX} py-16`}>
+      <div className="py-16">
         <motion.div variants={textVariant()}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
             What I work with
@@ -293,7 +294,7 @@ const AboutPage = () => {
       </div>
 
       {/* Projects Section */}
-      <div className={`${styles.paddingX} py-16`}>
+      <div className="py-16">
         <motion.div variants={textVariant()}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
             What I've built
@@ -355,7 +356,7 @@ const AboutPage = () => {
       </div>
 
       {/* Education & Certifications Section */}
-      <div className={`${styles.paddingX} py-16`}>
+      <div className="py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education */}
           <motion.div variants={fadeIn("right", "spring", 0.1, 0.75)}>
@@ -419,7 +420,7 @@ const AboutPage = () => {
       </div>
 
       {/* Transferable Skills Section */}
-      <div className={`${styles.paddingX} py-16`}>
+      <div className="py-16">
         <motion.div variants={textVariant()}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
             Beyond coding
@@ -466,7 +467,7 @@ const AboutPage = () => {
       </div>
 
       {/* Back to Home Link */}
-      <div className={`${styles.paddingX} py-16`}>
+      <div className="py-16">
         <div className="max-w-7xl mx-auto text-center">
           <Link 
             to="/"
@@ -480,4 +481,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default SectionWrapper(AboutPage, "");
