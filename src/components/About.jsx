@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
@@ -69,6 +70,15 @@ const About = () => {
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
+      </div>
+
+      <div className="mt-16 text-center">
+        <Link
+          to="/about"
+          className="inline-block px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
+          Learn More About Me
+        </Link>
       </div>
     </>
   );

@@ -7,6 +7,7 @@ import { logo, menu, close } from "../assets";
 import { useTheme } from "../context/ThemeContext";
 import sun from "../assets/sun.svg";
 import moon from "../assets/moon.svg";
+import cv from "../assets/cv.pdf";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -68,11 +69,22 @@ const Navbar = () => {
             >
               {nav.id === 'projects' ? (
                 <Link to="/projects">{nav.title}</Link>
+              ) : nav.id === 'about' ? (
+                <Link to="/about">{nav.title}</Link>
               ) : (
                 <a href={`#${nav.id}`}>{nav.title}</a>
               )}
             </li>
           ))}
+          <li>
+            <a
+              href={cv}
+              download="Dave_Roland_Siyapze_Resume.pdf"
+              className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-full transition-colors text-[16px]"
+            >
+              Resume
+            </a>
+          </li>
           <li>
             <button
               onClick={toggleTheme}
@@ -130,11 +142,22 @@ const Navbar = () => {
                 >
                   {nav.id === 'projects' ? (
                     <Link to="/projects">{nav.title}</Link>
+                  ) : nav.id === 'about' ? (
+                    <Link to="/about">{nav.title}</Link>
                   ) : (
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   )}
                 </li>
               ))}
+              <li>
+                <a
+                  href={cv}
+                  download="Dave_Roland_Siyapze_Resume.pdf"
+                  className="font-poppins font-medium cursor-pointer text-[16px] text-teal-400"
+                >
+                  Resume
+                </a>
+              </li>
             </ul>
           </div>
         </div>

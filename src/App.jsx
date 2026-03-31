@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Projects, Tech, Works, StarsCanvas } from "./components";
+import { About, AboutPage, Contact, Experience, Feedbacks, Hero, Navbar, Projects, Tech, Works, StarsCanvas } from "./components";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 
 const Home = () => {
@@ -35,6 +35,14 @@ const App = () => {
               <Navbar />
               <div className='pt-32'>
                 <Projects />
+              </div>
+            </div>
+          } />
+          <Route path="/about" element={
+            <div className='bg-primary min-h-screen'>
+              <Navbar />
+              <div className='pt-24'>
+                <AboutPage />
               </div>
             </div>
           } />
