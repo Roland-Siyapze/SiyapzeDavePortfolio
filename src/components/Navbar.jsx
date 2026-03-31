@@ -71,6 +71,8 @@ const Navbar = () => {
                 <Link to="/projects">{nav.title}</Link>
               ) : nav.id === 'about' ? (
                 <Link to="/about">{nav.title}</Link>
+              ) : nav.id === 'contact' ? (
+                <Link to="/contact">{nav.title}</Link>
               ) : (
                 <a href={`#${nav.id}`}>{nav.title}</a>
               )}
@@ -119,7 +121,9 @@ const Navbar = () => {
           <img
             src={toggle ? close : menu}
             alt="menu"
-            className="w-[28px] h-[28px] object-contain"
+            className={`w-[28px] h-[28px] object-contain ${
+              !isDarkMode ? "invert" : ""
+            }`}
             onClick={() => setToggle(!toggle)}
           />
 
@@ -144,6 +148,8 @@ const Navbar = () => {
                     <Link to="/projects">{nav.title}</Link>
                   ) : nav.id === 'about' ? (
                     <Link to="/about">{nav.title}</Link>
+                  ) : nav.id === 'contact' ? (
+                    <Link to="/contact">{nav.title}</Link>
                   ) : (
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   )}

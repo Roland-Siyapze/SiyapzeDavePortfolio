@@ -33,6 +33,7 @@ import skilltestapp from './skilltestapp.png';
 import commercia from './commercia.png';
 import lassoos from './lassoos.png';
 import sportaabe from './sportaabe.webp';
+import profile from './profile.jpeg';
 
 export {
   logo,
@@ -67,4 +68,5 @@ export {
   commercia,
   lassoos,
   sportaabe,
+  profile,
 };

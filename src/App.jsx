@@ -46,6 +46,14 @@ const App = () => {
               </div>
             </div>
           } />
+          <Route path="/contact" element={
+            <div className='bg-primary min-h-screen'>
+              <Navbar />
+              <div className='pt-24'>
+                <Contact />
+              </div>
+            </div>
+          } />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

@@ -7,7 +7,7 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useTheme } from "../context/ThemeContext";
-import { framework, coding, support, dataScience } from "../assets";
+import { framework, coding, support, dataScience, profile } from "../assets";
 import cv from "../assets/cv.pdf";
 
 const LocationIcon = ({ className }) => (
@@ -197,13 +197,11 @@ const AboutPage = () => {
                 <div className={`w-full h-full rounded-full flex items-center justify-center ${
                   isDarkMode ? "bg-tertiary" : "bg-white"
                 }`}>
-                  <div className={`w-full h-full rounded-full flex items-center justify-center overflow-hidden ${
-                    isDarkMode ? "bg-tertiary" : "bg-gray-200"
-                  }`}>
-                    <span className={`text-7xl lg:text-8xl font-bold ${
-                      isDarkMode ? "text-white" : "text-gray-600"
-                    }`}>DR</span>
-                  </div>
+                  <img 
+                    src={profile} 
+                    alt="Profile" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
             </Tilt>
