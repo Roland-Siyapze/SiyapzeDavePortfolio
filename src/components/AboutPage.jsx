@@ -35,7 +35,7 @@ const SkillCard = ({ index, title, skills, icon }) => {
   return (
     <Tilt className="w-full">
       <motion.div
-        variants={fadeIn("right", "spring", index * 0.15, 0.75)}
+        variants={fadeIn("right", "spring", index * 0.15, 0.75)} initial="hidden" whileInView="show" viewport={{ once: true }}
         className="w-full green-pink-gradient p-[1px] rounded-[20px]"
       >
         <div
@@ -161,11 +161,16 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-primary">
+    <motion.div
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      className="min-h-screen bg-primary"
+    >
       {/* Hero Section */}
       <div className= "pb-16">
-        <motion.div variants={textVariant()}>
-          {/* Section Header Style */}
+        <motion.div variants={textVariant()} initial="hidden" whileInView="show" viewport={{ once: true }}   className="w-full">
+          {/* Section Header Style */} 
           <div className="flex flex-row items-start gap-5">
             <div className="flex flex-col justify-center items-center">
               <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
@@ -247,7 +252,7 @@ const AboutPage = () => {
 
       {/* Summary Section */}
       <div className="py-16">
-        <motion.div variants={fadeIn("", "", 0.1, 1)}>
+        <motion.div variants={fadeIn("", "", 0.1, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <h3 className={`text-2xl lg:text-3xl font-bold mb-6 ${
             isDarkMode ? "text-white" : "text-gray-900"
           }`}>
@@ -267,7 +272,7 @@ const AboutPage = () => {
 
       {/* Technical Skills Section */}
       <div className="py-16">
-        <motion.div variants={textVariant()}>
+        <motion.div variants={textVariant()} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
             What I work with
           </p>
@@ -293,7 +298,7 @@ const AboutPage = () => {
 
       {/* Projects Section */}
       <div className="py-16">
-        <motion.div variants={textVariant()}>
+        <motion.div variants={textVariant()} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
             What I've built
           </p>
@@ -309,6 +314,7 @@ const AboutPage = () => {
             <motion.div 
               key={project.name}
               variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+              initial="hidden" whileInView="show" viewport={{ once: true }}
             >
               <Tilt
                 options={{
@@ -357,7 +363,7 @@ const AboutPage = () => {
       <div className="py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education */}
-          <motion.div variants={fadeIn("right", "spring", 0.1, 0.75)}>
+          <motion.div variants={fadeIn("right", "spring", 0.1, 0.75)} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <h3 className={`text-2xl lg:text-3xl font-bold mb-8 ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}>
@@ -388,7 +394,7 @@ const AboutPage = () => {
           </motion.div>
 
           {/* Certifications */}
-          <motion.div variants={fadeIn("right", "spring", 0.2, 0.75)}>
+          <motion.div variants={fadeIn("right", "spring", 0.2, 0.75)} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <h3 className={`text-2xl lg:text-3xl font-bold mb-8 ${
               isDarkMode ? "text-white" : "text-gray-900"
             }`}>
@@ -419,7 +425,7 @@ const AboutPage = () => {
 
       {/* Transferable Skills Section */}
       <div className="py-16">
-        <motion.div variants={textVariant()}>
+        <motion.div variants={textVariant()} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
             Beyond coding
           </p>
@@ -435,6 +441,7 @@ const AboutPage = () => {
             <motion.div 
               key={skill.title}
               variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+              initial="hidden" whileInView="show" viewport={{ once: true }}
             >
               <Tilt
                 options={{
@@ -475,7 +482,7 @@ const AboutPage = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

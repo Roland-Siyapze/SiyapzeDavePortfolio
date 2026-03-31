@@ -24,7 +24,7 @@ const ProjectCard = ({
   const showCodeLink = source_code_link && source_code_link !== "";
 
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} initial="hidden" whileInView="show" viewport={{ once: true }}>
       <Tilt
         options={{
           max: 45,
@@ -95,7 +95,7 @@ const Projects = () => {
   
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant()} initial="hidden" whileInView="show" viewport={{ once: true }}>
         <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>My work</p>
         <h2 className={`${styles.sectionHeadText} ${isDarkMode ? "text-white" : "text-gray-900"}`}>All Projects.</h2>
       </motion.div>
@@ -103,6 +103,7 @@ const Projects = () => {
       <div className="w-full flex">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
+          initial="hidden" whileInView="show" viewport={{ once: true }}
           className={`mt-3 text-[17px] max-w-3xl leading-[30px] ${isDarkMode ? "text-secondary" : "text-gray-600"}`}
         >
           The following projects showcase my skills and experience through
