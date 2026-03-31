@@ -75,7 +75,7 @@ const About = () => {
       <div className="mt-16 text-center">
         <Link
           to="/about"
-          className="inline-block px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          className="inline-block px-8 py-4 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
         >
           Learn More About Me
         </Link>

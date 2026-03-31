@@ -75,7 +75,7 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Profile Image - Left Column */}
             <div className="flex-shrink-0">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-teal-600 shadow-xl">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-violet-600 shadow-xl">
                 {/* Note: Replace with actual profile image when available */}
                 <div className={`w-full h-full flex items-center justify-center ${isDarkMode ? "bg-tertiary" : "bg-gray-300"}`}>
                   <span className={`text-6xl font-bold ${isDarkMode ? "text-white" : "text-gray-600"}`}>DR</span>
@@ -88,7 +88,7 @@ const AboutPage = () => {
               <h1 className={`text-4xl md:text-5xl font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>
                 {personalInfo.name}
               </h1>
-              <h2 className={`text-2xl md:text-3xl mt-2 ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+              <h2 className={`text-2xl md:text-3xl mt-2 ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                 {personalInfo.title}
               </h2>
               <div className={`mt-6 text-lg ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
@@ -107,7 +107,7 @@ const AboutPage = () => {
               <a
                 href={cv}
                 download="Dave_Roland_Siyapze_Resume.pdf"
-                className="inline-block mt-8 px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-block mt-8 px-8 py-4 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Download Resume
               </a>
@@ -145,7 +145,7 @@ const AboutPage = () => {
               variants={fadeIn("right", "spring", 0.1, 0.75)}
               className={`p-6 rounded-2xl ${isDarkMode ? "bg-tertiary" : "bg-gray-100"}`}
             >
-              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                 Languages
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -165,7 +165,7 @@ const AboutPage = () => {
               variants={fadeIn("right", "spring", 0.2, 0.75)}
               className={`p-6 rounded-2xl ${isDarkMode ? "bg-tertiary" : "bg-gray-100"}`}
             >
-              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                 Frameworks / Libraries
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -185,7 +185,7 @@ const AboutPage = () => {
               variants={fadeIn("right", "spring", 0.3, 0.75)}
               className={`p-6 rounded-2xl ${isDarkMode ? "bg-tertiary" : "bg-gray-100"}`}
             >
-              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                 Tools / Platforms
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -205,7 +205,7 @@ const AboutPage = () => {
               variants={fadeIn("right", "spring", 0.4, 0.75)}
               className={`p-6 rounded-2xl ${isDarkMode ? "bg-tertiary" : "bg-gray-100"}`}
             >
-              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                 Data / ML
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -225,7 +225,7 @@ const AboutPage = () => {
               variants={fadeIn("right", "spring", 0.5, 0.75)}
               className={`p-6 rounded-2xl ${isDarkMode ? "bg-tertiary" : "bg-gray-100"}`}
             >
-              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+              <h4 className={`text-lg font-semibold mb-3 ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                 Other
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -264,7 +264,7 @@ const AboutPage = () => {
                   <h4 className={`text-lg font-bold ${isDarkMode ? "text-white" : "text-gray-900"}`}>
                     {project.name}
                   </h4>
-                  <span className={`mt-2 md:mt-0 text-sm ${isDarkMode ? "text-teal-400" : "text-teal-600"}`}>
+                  <span className={`mt-2 md:mt-0 text-sm ${isDarkMode ? "text-violet-400" : "text-violet-600"}`}>
                     {project.period}
                   </span>
                 </div>
@@ -308,7 +308,7 @@ const AboutPage = () => {
                 <ul className={`space-y-3 ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
                   {certifications.map((cert, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-teal-500">✓</span>
+                      <span className="text-violet-500">✓</span>
                       {cert}
                     </li>
                   ))}
@@ -349,7 +349,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto text-center">
           <Link 
             to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-semibold transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold transition-all duration-300"
           >
             ← Back to Home
           </Link>
