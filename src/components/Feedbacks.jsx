@@ -8,18 +8,39 @@ import { useTheme } from "../context/ThemeContext";
 const Feedbacks = () => {
   const { isDarkMode } = useTheme();
 
+  // Load Elfsight script once on mount
   useEffect(() => {
-    // Load Elfsight platform script if not already loaded
     if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
       const script = document.createElement("script");
       script.src = "https://elfsightcdn.com/platform.js";
       script.async = true;
       document.body.appendChild(script);
-    } else if (window.eapps) {
-      // If script already loaded, re-initialize widgets
-      window.eapps.Platform.reload();
     }
   }, []);
+
+  // Sync Elfsight theme whenever isDarkMode changes
+  useEffect(() => {
+    const applyTheme = () => {
+      const widget = document.querySelector(
+        ".elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089"
+      );
+      if (widget) {
+        widget.setAttribute(
+          "data-elfsight-app-theme",
+          isDarkMode ? "dark" : "light"
+        );
+      }
+
+      // Trigger Elfsight to re-render with new theme if API is ready
+      if (window.eapps?.Platform) {
+        window.eapps.Platform.reload();
+      }
+    };
+
+    // Small delay to ensure widget DOM is ready
+    const timeout = setTimeout(applyTheme, 300);
+    return () => clearTimeout(timeout);
+  }, [isDarkMode]);
 
   return (
     <div className={`mt-12 rounded-[20px] ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
@@ -41,6 +62,7 @@ const Feedbacks = () => {
         <div
           className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089"
           data-elfsight-app-lazy
+          data-elfsight-app-theme={isDarkMode ? "dark" : "light"}
         />
       </div>
     </div>
