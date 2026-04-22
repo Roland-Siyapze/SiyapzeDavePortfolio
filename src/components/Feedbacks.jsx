@@ -58,7 +58,7 @@ const Feedbacks = () => {
       </div>
 
       {/* Elfsight Google Reviews Widget */}
-      <div className={`xs:-mt-16 -mt-12 xs:pb-10 pb-8 ${styles.paddingX}`}>
+      <div className={`xs:-mt-16 -mt-12 xs:pb-10 pb-8 xs:px-2 }`}>
         <div
           className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089 overflow-x-auto"
           data-elfsight-app-lazy

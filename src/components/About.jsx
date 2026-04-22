@@ -13,7 +13,7 @@ const ServiceCard = ({ index, title, icon }) => {
   const { isDarkMode } = useTheme();
   
   return (
-  <Tilt className="xs:w-[220px] sm:w-[250px] w-full">
+  <Tilt className="xs:w-[170px] sm:w-[250px] w-full">
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className="w-full green-pink-gradient p-[1px] rounded-[20px]"
@@ -66,7 +66,7 @@ const About = () => {
         into reality.
       </motion.p>
 
-      <div className="mt-16 xs:mt-12 flex flex-wrap xs:gap-5 sm:gap-10 gap-3 justify-center xs:justify-start">
+      <div className="mt-16 xs:mt-12 flex flex-wrap xs:gap-5 sm:gap-10 gap-3 justify-center xs:justify-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
