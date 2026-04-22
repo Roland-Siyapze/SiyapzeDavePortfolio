@@ -43,9 +43,9 @@ const Feedbacks = () => {
   }, [isDarkMode]);
 
   return (
-    <div className={`mt-12 rounded-[20px] ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
+    <div className={`xs:mt-12 mt-8 rounded-[20px] ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
       <div
-        className={`rounded-2xl ${styles.padding} min-h-[300px] ${isDarkMode ? "bg-tertiary" : "bg-gray-300"}`}
+        className={`rounded-2xl ${styles.padding} xs:min-h-[250px] min-h-[220px] ${isDarkMode ? "bg-tertiary" : "bg-gray-300"}`}
       >
         <motion.div variants={textVariant()}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
@@ -58,9 +58,9 @@ const Feedbacks = () => {
       </div>
 
       {/* Elfsight Google Reviews Widget */}
-      <div className={`-mt-20 pb-14 ${styles.paddingX}`}>
+      <div className={`xs:-mt-16 -mt-12 xs:pb-10 pb-8 ${styles.paddingX}`}>
         <div
-          className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089"
+          className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089 overflow-x-auto"
           data-elfsight-app-lazy
           data-elfsight-app-theme={isDarkMode ? "dark" : "light"}
         />

@@ -17,11 +17,21 @@ module.exports = {
         card: '0px 35px 120px -15px #211e35',
       },
       screens: {
-        xs: '450px',
+        xs: '375px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
       },
       backgroundImage: {
         'hero-pattern': "url('/src/assets/herobg.png')",
         'hero-pattern-white': "url('/src/assets/herowhitebg.png')",
+      },
+      spacing: {
+        'safe-top': 'max(1rem, env(safe-area-inset-top))',
+        'safe-bottom': 'max(1rem, env(safe-area-inset-bottom))',
+        'safe-left': 'max(1rem, env(safe-area-inset-left))',
+        'safe-right': 'max(1rem, env(safe-area-inset-right))',
       },
     },
   },

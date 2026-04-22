@@ -8,20 +8,20 @@ const Hero = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <section className={`relative w-full h-screen mx-auto`}>
+    <section className={`relative w-full min-h-screen xs:min-h-[600px] md:h-screen mx-auto`}>
       <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+        className={`absolute inset-0 xs:top-[100px] sm:top-[120px] top-[80px] max-w-7xl mx-auto ${styles.paddingX} flex xs:flex-row flex-col items-start xs:gap-5 gap-3`}
       >
-        <div className="flex flex-col justify-center items-center mt-5">
+        <div className="flex xs:flex-col flex-row justify-center xs:items-center items-start xs:mt-5 mt-2">
           <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          <div className="xs:w-1 w-0.5 xs:h-80 h-40 sm:h-80 violet-gradient" />
         </div>
 
-        <div>
+        <div className="flex-1">
           <h1 className={`${styles.heroHeadText} ${isDarkMode ? "text-white" : "text-gray-900"}`}>
             Hi, I'm <span className="text-[#915EFF]">Roland</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 ${isDarkMode ? "text-white-100" : "text-gray-700"}`}>
+          <p className={`${styles.heroSubText} mt-2 md:mt-4 ${isDarkMode ? "text-white-100" : "text-gray-700"}`}>
             Optimized web solutions: <br className="sm:block hidden" />
             seamless UX, peak performance.
           </p>
@@ -30,8 +30,7 @@ const Hero = () => {
 
       <ComputersCanvas />
 
-
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className="absolute xs:bottom-10 bottom-5 sm:bottom-10 w-full flex justify-center items-center px-4">
         <a href="#about">
           <div className={`w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2 ${isDarkMode ? "border-secondary" : "border-gray-600"}`}>
             <motion.div
