@@ -44,8 +44,9 @@ const Feedbacks = () => {
 
   return (
     <div className={`xs:mt-12 mt-8 rounded-[20px] ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
+      {/* Header Section */}
       <div
-        className={`rounded-2xl ${styles.padding} xs:min-h-[250px] min-h-[220px] ${isDarkMode ? "bg-tertiary" : "bg-gray-300"}`}
+        className={`rounded-t-2xl px-6 xs:px-4 py-6 xs:py-4 ${isDarkMode ? "bg-tertiary" : "bg-gray-300"}`}
       >
         <motion.div variants={textVariant()}>
           <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
@@ -57,13 +58,58 @@ const Feedbacks = () => {
         </motion.div>
       </div>
 
-      {/* Elfsight Google Reviews Widget */}
-      <div className={`xs:-mt-16 -mt-12 xs:pb-10 pb-8 xs:px-6 overflow-hidden`}>
-        <div
-          className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089 w-full"
-          data-elfsight-app-lazy
-          data-elfsight-app-theme={isDarkMode ? "dark" : "light"}
-        />
+      {/* Two Column Layout */}
+      <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 xs:px-3 px-6 py-10 xs:py-8 ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
+        
+        {/* Left Column - Text Content */}
+        <motion.div
+          variants={textVariant()}
+          className="hidden md:flex flex-col justify-center"
+        >
+          <p className={`text-[16px] xs:text-[14px] leading-[24px] xs:leading-[20px] ${isDarkMode ? "text-secondary" : "text-gray-700"} mb-6`}>
+            Our clients have entrusted us with their projects, and their feedback speaks to our commitment to excellence and customer satisfaction. Here's what they have to say about working with us.
+          </p>
+          
+          <div className={`space-y-4 ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
+            <div className="flex items-start gap-3">
+              <span className={`text-xl mt-1 ${isDarkMode ? "text-green-400" : "text-green-600"}`}>✓</span>
+              <div>
+                <p className="font-semibold">Quality Work</p>
+                <p className="text-[14px]">We deliver high-quality solutions that exceed expectations</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3">
+              <span className={`text-xl mt-1 ${isDarkMode ? "text-green-400" : "text-green-600"}`}>✓</span>
+              <div>
+                <p className="font-semibold">On-Time Delivery</p>
+                <p className="text-[14px]">Projects are completed on schedule and within budget</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3">
+              <span className={`text-xl mt-1 ${isDarkMode ? "text-green-400" : "text-green-600"}`}>✓</span>
+              <div>
+                <p className="font-semibold">Client Support</p>
+                <p className="text-[14px]">Dedicated support and communication throughout the project</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Column - Elfsight Reviews Carousel */}
+        <motion.div
+          variants={textVariant()}
+          className="flex flex-col justify-center"
+        >
+          <div className={`overflow-x-hidden overflow-y-visible rounded-lg px-2 xs:px-1`}>
+            <div
+              className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089 w-full"
+              data-elfsight-app-lazy
+              data-elfsight-app-theme={isDarkMode ? "dark" : "light"}
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );
