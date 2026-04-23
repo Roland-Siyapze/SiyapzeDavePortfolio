@@ -15,6 +15,7 @@ import Projects from './Projects';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import CanvasLoader from './Loader';
+import Canvas3DFallback from './Canvas3DFallback';
 
 export {
   Hero,
@@ -28,6 +29,7 @@ export {
   Feedbacks,
   Contact,
   CanvasLoader,
+  Canvas3DFallback,
   EarthCanvas,
   BallCanvas,
   ComputersCanvas,
