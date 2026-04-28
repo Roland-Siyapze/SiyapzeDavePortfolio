@@ -5,28 +5,57 @@
 @tailwind utilities;
 
 :root {
-  /* Dark theme (default) */
-  --color-primary: #050816;
-  --color-secondary: #aaa6c3;
-  --color-tertiary: #151030;
-  --color-black-100: #100d25;
-  --color-black-200: #090325;
-  --color-white-100: #f3f3f3;
-  --color-text: #ffffff;
-  --color-text-muted: #dfd9ff;
-  --color-accent: #915EFF;
+  /* ─── DARK THEME (default) ───────────────────────────────────────
+     Palette: deep slate-indigo base, warm cream accents, violet brand
+     Feeling: focused, premium, technical — like a well-lit studio at night
+  ──────────────────────────────────────────────────────────────── */
+  --color-primary: #0d0d14;
+  --color-secondary: #9e9cb8;
+  --color-tertiary: #16162a;
+  --color-black-100: #12121f;
+  --color-black-200: #0a0a16;
+  --color-white-100: #eeeaf5;
+  --color-text: #eeeaf5;
+  --color-text-muted: #c4c0d8;
+  --color-accent: #7c5cfc;
+
+  /* Surface layers — subtle depth without harsh contrast */
+  --color-surface-1: #16162a;
+  --color-surface-2: #1c1c33;
+  --color-surface-3: #22213c;
+
+  /* Border colours — barely visible, not harsh */
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-hover: rgba(124, 92, 252, 0.35);
 }
 
 .light {
-  --color-primary: #faf7e9;
-  --color-secondary: #4a4a4a;
-  --color-tertiary: #f5f5f5;
-  --color-black-100: #e0e0e0;
-  --color-black-200: #cccccc;
-  --color-white-100: #1a1a1a;
-  --color-text: #1a1a1a;
-  --color-text-muted: #333333;
-  --color-accent: #6b4fd6;
+  /* ─── LIGHT THEME ────────────────────────────────────────────────
+     Palette: warm off-white base, slate text, violet brand (same hue family)
+     Feeling: clean editorial — like a well-designed print magazine
+     Key principle: NOT pure white + pure black. 
+     Base is a warm #f7f6f2 (antique paper warmth), 
+     text is #1c1b2e (same deep indigo family as dark mode bg), 
+     so both themes share DNA through the indigo-violet axis.
+  ──────────────────────────────────────────────────────────────── */
+  --color-primary: #f4f3ef;
+  --color-secondary: #5c5a72;
+  --color-tertiary: #eceae4;
+  --color-black-100: #e4e2db;
+  --color-black-200: #d8d5cc;
+  --color-white-100: #1c1b2e;
+  --color-text: #1c1b2e;
+  --color-text-muted: #3d3b52;
+  --color-accent: #6246ea;
+
+  /* Surface layers — warm tones, not clinical white */
+  --color-surface-1: #eceae4;
+  --color-surface-2: #e4e2db;
+  --color-surface-3: #dad8d0;
+
+  /* Border colours */
+  --color-border: rgba(28, 27, 46, 0.09);
+  --color-border-hover: rgba(98, 70, 234, 0.3);
 }
 
 * {
@@ -46,7 +75,11 @@ body {
   background-color: var(--color-primary);
   color: var(--color-text);
   overflow-x: hidden;
+  /* Smooth theme transitions */
+  transition: background-color 0.3s ease, color 0.2s ease;
 }
+
+/* ─── GRADIENT UTILITIES ─────────────────────────────────────── */
 
 .hash-span {
   margin-top: -100px;
@@ -55,101 +88,46 @@ body {
 }
 
 .black-gradient {
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #2a2a2a, #111111);
 }
 
 .violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(
-    -90deg,
-    #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
-  );
+  /* Refined — warmer purple, not neon */
+  background: linear-gradient(-90deg, #7c5cfc 0%, rgba(60, 51, 80, 0) 100%);
 }
 
 .green-pink-gradient {
-  background: "#00cea8";
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
 }
 
+/* ─── TEXT GRADIENTS ─────────────────────────────────────────── */
+
 .orange-text-gradient {
-  background: #f12711; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #f12711, #f5af19);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .green-text-gradient {
-  background: #11998e; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #11998e, #38ef7d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #2f80ed, #56ccf2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .pink-text-gradient {
-  background: #ec008c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #ec008c, #fc6767);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* canvas- styles */
+/* ─── CANVAS LOADER ──────────────────────────────────────────── */
+
 .canvas-loader {
   font-size: 10px;
   width: 1em;
@@ -238,20 +216,19 @@ body {
   }
 }
 
-/* Mobile Optimization Styles */
+/* ─── MOBILE OPTIMISATION ────────────────────────────────────── */
+
 @media (max-width: 640px) {
   html {
     font-size: 14px;
   }
 
-  /* Prevent zoom on input focus for iOS */
   input,
   textarea,
   select {
     font-size: 16px;
   }
 
-  /* Improve tap targets on mobile */
   button,
   a,
   [role="button"] {
@@ -259,14 +236,12 @@ body {
     min-width: 44px;
   }
 
-  /* Remove default mobile highlight */
   a,
   button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
   }
 }
 
-/* Responsive breakpoints optimization */
 @media (max-width: 375px) {
   .hash-span {
     margin-top: -60px;
@@ -281,17 +256,30 @@ body {
   }
 }
 
-/* Improve readability on all mobile devices */
 @media (max-width: 768px) {
-  /* Better line heights for mobile */
   p,
   span,
   li {
     line-height: 1.6;
   }
 
-  /* Better touch targets */
   .card-img_hover {
     opacity: 1;
   }
+}
+
+/* ─── THEME TRANSITION ───────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Override for elements that should NOT transition (e.g. animations) */
+.no-theme-transition,
+.canvas-loader {
+  transition: none !important;
 }

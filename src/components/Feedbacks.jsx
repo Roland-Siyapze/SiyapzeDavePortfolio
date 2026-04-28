@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import { textVariant, fadeIn } from "../utils/motion";
 import { useTheme } from "../context/ThemeContext";
 
 const Feedbacks = () => {
   const { isDarkMode } = useTheme();
 
-  // Load Elfsight script once on mount
   useEffect(() => {
     if (!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')) {
       const script = document.createElement("script");
@@ -18,7 +17,6 @@ const Feedbacks = () => {
     }
   }, []);
 
-  // Sync Elfsight theme whenever isDarkMode changes
   useEffect(() => {
     const applyTheme = () => {
       const widget = document.querySelector(
@@ -30,87 +28,140 @@ const Feedbacks = () => {
           isDarkMode ? "dark" : "light"
         );
       }
-
-      // Trigger Elfsight to re-render with new theme if API is ready
       if (window.eapps?.Platform) {
         window.eapps.Platform.reload();
       }
     };
-
-    // Small delay to ensure widget DOM is ready
     const timeout = setTimeout(applyTheme, 300);
     return () => clearTimeout(timeout);
   }, [isDarkMode]);
 
+  const highlights = [
+    {
+      label: "Quality Work",
+      desc: "Delivering solutions that exceed expectations on every project.",
+    },
+    {
+      label: "On-Time Delivery",
+      desc: "Projects completed on schedule and within agreed budgets.",
+    },
+    {
+      label: "Dedicated Support",
+      desc: "Clear communication and responsiveness throughout.",
+    },
+  ];
+
   return (
-    <div className={`xs:mt-12 mt-8 rounded-[20px] ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
-      {/* Header Section */}
+    <div className="xs:mt-12 mt-8">
+      {/* ── Section header ─────────────────────────────────────── */}
+      <motion.div variants={textVariant()}>
+        <p
+          className={`${styles.sectionSubText} ${
+            isDarkMode ? "text-secondary" : "text-[#5c5a72]"
+          }`}
+        >
+          What others say
+        </p>
+        <h2
+          className={`${styles.sectionHeadText} ${
+            isDarkMode ? "text-white" : "text-[#1c1b2e]"
+          }`}
+        >
+          Testimonials.
+        </h2>
+      </motion.div>
+
+      {/* ── Two-column body ────────────────────────────────────── */}
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+        {/* Left — value props */}
+        <motion.div
+          variants={fadeIn("right", "tween", 0.1, 0.8)}
+          className="hidden md:flex flex-col gap-6"
+        >
+          <p
+            className={`text-[15px] leading-[26px] ${
+              isDarkMode ? "text-secondary" : "text-[#5c5a72]"
+            }`}
+          >
+            Clients trust me to deliver reliable, high-quality work. Here is
+            what they have shared after working together.
+          </p>
+
+          <div className="flex flex-col gap-4 mt-2">
+            {highlights.map((item, i) => (
+              <motion.div
+                key={item.label}
+                variants={fadeIn("up", "tween", 0.1 + i * 0.1, 0.6)}
+                className={`flex items-start gap-4 p-5 rounded-2xl border transition-colors duration-300 ${
+                  isDarkMode
+                    ? "bg-[#16162a] border-[rgba(255,255,255,0.06)]"
+                    : "bg-[#eceae4] border-[rgba(28,27,46,0.08)]"
+                }`}
+              >
+                {/* Accent dot */}
+                <div
+                  className={`mt-1 w-2 h-2 rounded-full flex-shrink-0 ${
+                    isDarkMode ? "bg-[#7c5cfc]" : "bg-[#6246ea]"
+                  }`}
+                />
+                <div>
+                  <p
+                    className={`font-semibold text-[14px] mb-1 ${
+                      isDarkMode ? "text-white" : "text-[#1c1b2e]"
+                    }`}
+                  >
+                    {item.label}
+                  </p>
+                  <p
+                    className={`text-[13px] leading-[20px] ${
+                      isDarkMode ? "text-secondary" : "text-[#5c5a72]"
+                    }`}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right — Elfsight widget */}
+        <motion.div
+          variants={fadeIn("left", "tween", 0.15, 0.8)}
+          className={`rounded-2xl border ${
+            isDarkMode
+              ? "border-[rgba(255,255,255,0.06)]"
+              : "border-[rgba(28,27,46,0.08)]"
+          }`}
+          style={{
+            /*
+             * The background here deliberately matches what Elfsight
+             * renders its widget on — transparent on dark, the same warm
+             * parchment on light — so the widget feels embedded, not
+             * pasted on top.
+             */
+            background: isDarkMode
+              ? "transparent"
+              : "#f4f3ef",
+          }}
+        >
+          <div
+            className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089 w-full"
+            data-elfsight-app-lazy
+            data-elfsight-app-theme={isDarkMode ? "dark" : "light"}
+          />
+        </motion.div>
+      </div>
+
+      {/* ── Bottom rule — consistent with Tech section ──────────── */}
       <div
-        className={`rounded-t-2xl px-6 xs:px-4 py-6 xs:py-4 ${isDarkMode ? "bg-tertiary" : "bg-gray-300"}`}
-      >
-        <motion.div variants={textVariant()}>
-          <p className={`${styles.sectionSubText} ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
-            What others say
-          </p>
-          <h2 className={`${styles.sectionHeadText} ${isDarkMode ? "text-white" : "text-gray-900"}`}>
-            Testimonials.
-          </h2>
-        </motion.div>
-      </div>
-
-      {/* Two Column Layout */}
-      <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 xs:px-3 px-6 py-10 xs:py-8 ${isDarkMode ? "bg-black-100" : "bg-gray-200"}`}>
-        
-        {/* Left Column - Text Content */}
-        <motion.div
-          variants={textVariant()}
-          className="hidden md:flex flex-col justify-center"
-        >
-          <p className={`text-[16px] xs:text-[14px] leading-[24px] xs:leading-[20px] ${isDarkMode ? "text-secondary" : "text-gray-700"} mb-6`}>
-            Our clients have entrusted us with their projects, and their feedback speaks to our commitment to excellence and customer satisfaction. Here's what they have to say about working with us.
-          </p>
-          
-          <div className={`space-y-4 ${isDarkMode ? "text-secondary" : "text-gray-600"}`}>
-            <div className="flex items-start gap-3">
-              <span className={`text-xl mt-1 ${isDarkMode ? "text-green-400" : "text-green-600"}`}>✓</span>
-              <div>
-                <p className="font-semibold">Quality Work</p>
-                <p className="text-[14px]">We deliver high-quality solutions that exceed expectations</p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-3">
-              <span className={`text-xl mt-1 ${isDarkMode ? "text-green-400" : "text-green-600"}`}>✓</span>
-              <div>
-                <p className="font-semibold">On-Time Delivery</p>
-                <p className="text-[14px]">Projects are completed on schedule and within budget</p>
-              </div>
-            </div>
-            
-            <div className="flex items-start gap-3">
-              <span className={`text-xl mt-1 ${isDarkMode ? "text-green-400" : "text-green-600"}`}>✓</span>
-              <div>
-                <p className="font-semibold">Client Support</p>
-                <p className="text-[14px]">Dedicated support and communication throughout the project</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Column - Elfsight Reviews Carousel */}
-        <motion.div
-          variants={textVariant()}
-          className="flex flex-col justify-center"
-        >
-          <div className={`overflow-x-hidden overflow-y-visible rounded-lg px-2 xs:px-1`}>
-            <div
-              className="elfsight-app-68fe209b-70b6-4a2e-b54b-c21cde23d089 w-full"
-              data-elfsight-app-lazy
-              data-elfsight-app-theme={isDarkMode ? "dark" : "light"}
-            />
-          </div>
-        </motion.div>
-      </div>
+        className={`mt-16 h-px w-full ${
+          isDarkMode
+            ? "bg-gradient-to-r from-transparent via-[#7c5cfc30] to-transparent"
+            : "bg-gradient-to-r from-transparent via-[#6246ea20] to-transparent"
+        }`}
+      />
     </div>
   );
 };
